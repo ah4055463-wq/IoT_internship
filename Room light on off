@@ -1,0 +1,27 @@
+#define PIRPIN 4
+#define IRPIN 5
+#define LEDPIN 6
+void setup() 
+{
+Serial.begin(115200);
+pinMode(PIRPIN,INPUT);
+pinMode(IRPIN,INPUT);
+pinMode(LEDPIN,OUTPUT);
+}
+void loop()
+ {
+  int t=digitalRead(PIRPIN);
+  int i=digitalRead(IRPIN);
+  Serial.println("motion");
+  Serial.println(t);
+  Serial.println(i);
+ if(t==1&&i==0)
+ {
+  digitalWrite(LEDPIN,HIGH);
+ }
+ else
+ {
+  digitalWrite(LEDPIN,LOW);
+ }
+ delay(1000);
+}
